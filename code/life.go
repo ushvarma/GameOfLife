@@ -105,4 +105,4 @@ func sleep() {time.Sleep(100*time.Millisecond)}
 func homeScreen(){ fmt.Println("\033[1;1H") }
 func clearScreen(){ fmt.Println("\033[2J") }
 //test function for travis build
-func Test()int{ return 1 }
+func Test_life()int{ return 1 }
