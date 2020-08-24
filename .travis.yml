@@ -5,8 +5,11 @@ matrix:
         - 1.9.x
         - release
         - tip
+      install:
+        - sudo apt-get install golang-go
       script:
-        - go test -v ./...
+        - go build code/life.go
+        - go run code/life.go
 
 notifications:
   email: false
