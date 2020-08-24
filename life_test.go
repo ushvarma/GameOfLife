@@ -1,6 +1,7 @@
 package main
 
 import "testing"
+import "main"
 
 func goTest(t *testing.T){
 	var result int
