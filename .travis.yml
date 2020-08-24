@@ -25,6 +25,8 @@ matrix:
     - language: perl
       perl:
         - "5.30"
+      install:
+        - ["true"]
       script:
         - perl tests/GameOfLife_tests.pl
 
