@@ -57,10 +57,10 @@ func live(a []int, r, gen int)int{
 	neighbors = 0
 	var b []int
 	for c:=0; c<len(a); c++ {
-		if(c-1 >= 0 && c-1<=len(a)-1){
+		if(c-1 >= 0 && c%r != 0 && c-1<=len(a)-1){
 			neighbors += a[c-1]
 		}
-		if(c+1 >= 0 && c+1<=len(a)-1){
+		if(c+1 >= 0 && (c+1)%r != 0 && c+1<=len(a)-1){
 			neighbors += a[c+1]
 		}
 		if(c-r-1 >= 0 && c-r-1<=len(a)-1){
