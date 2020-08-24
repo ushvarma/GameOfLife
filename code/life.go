@@ -63,22 +63,22 @@ func live(a []int, r, gen int)int{
 		if(c+1 >= 0 && (c+1)%r != 0 && c+1<=len(a)-1){
 			neighbors += a[c+1]
 		}
-		if(c-r-1 >= 0 && c-r-1<=len(a)-1){
+		if(c-r-1 >= 0 && c-r-1<=len(a)-1 && c%r != 0){
 			neighbors += a[c-r-1]
 		}
 		if(c-r >= 0 && c-r<=len(a)-1){
 			neighbors += a[c-r]
 		}
-		if(c-r+1 >= 0 && c-r+1<=len(a)-1){
+		if(c-r+1 >= 0 && c-r+1<=len(a)-1 && (c+1)%r != 0){
 			neighbors += a[c-r+1]
 		}
-		if(c+r-1 >= 0 && c+r-1<=len(a)-1){
+		if(c+r-1 >= 0 && c+r-1<=len(a)-1 && c%r != 0){
 			neighbors += a[c+r-1]
 		}
 		if(c+r >= 0 && c+r<=len(a)-1){
 			neighbors += a[c+r]
 		}
-		if(c+r+1 >= 0 && c+r+1<=len(a)-1){
+		if(c+r+1 >= 0 && c+r+1<=len(a)-1 && (c+1)%r != 0){
 			neighbors += a[c+r+1]
 		}
 		if(a[c] == 0){
