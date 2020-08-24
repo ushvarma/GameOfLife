@@ -22,5 +22,11 @@ matrix:
       script:
         - ruby code/GameOfLife.rb
 
+    - language: perl
+      perl:
+        - "5.30"
+      script:
+        - perl tests/GameOfLife_tests.pl
+
 notifications:
   email: false
