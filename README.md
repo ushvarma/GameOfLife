@@ -14,4 +14,16 @@ Now Neighbors           Next\
 0   0,1,2,4,5,6,7,8 ->  0  # Barren
 
 Example of one Instance of Game of Life:
+
 ![](ZRY1IlT.gif)
+
+
+## Steps for executing the code:
+
+1. Visit the link https://www.onlinegdb.com/
+
+2. Select the programming language on the top right corner(Ruby,Pearl,Go).
+
+3. Copy the respective progamming languge code for the game of life present in the code folder.
+
+4. Click on run at the top and check the output screen as the game of life is displayed.
