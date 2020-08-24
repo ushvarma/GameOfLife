@@ -2,6 +2,7 @@ use warnings;
 use strict;
 
 use List::Util qw[min max];
+use Time::HiRes qw(usleep);
 
 sub createUniverse {
     my ($rows, $cols) = @_;
@@ -26,18 +27,16 @@ sub createEmptyUniverse {
 }
 
 sub printUniverse {
-    my ($universeRef, $rows, $cols) = @_;
+    my ($universeRef, $rows, $cols, $generation) = @_;
     my @universe = @$universeRef;
+    system("clear"); # works on *nix systems
+    print("Generation: ", $generation, "\n");
     foreach my $row (0 .. $rows-1) {
         foreach my $col (0 .. $cols-1) {
             print($universe[$row][$col] ? "@" : " ");
         }
         print("\n");
     }
-    foreach (0..$cols-1) {
-        print("=")
-    }
-    print("\n")
 }
 
 sub nextGeneration {
@@ -67,10 +66,10 @@ sub nextGeneration {
 my ($rows, $cols, $generations) = @ARGV;
 
 my @universe = createUniverse($rows, $cols);
-printUniverse(\@universe, $rows, $cols);
+printUniverse(\@universe, $rows, $cols, 0);
 
-foreach (0 .. $generations-1) {
-    sleep .5;
+foreach my $generation (1 .. $generations-1) {
+    usleep(500*1000);   # 500ms
     @universe = nextGeneration(\@universe, $rows, $cols);
-    printUniverse(\@universe, $rows, $cols);
+    printUniverse(\@universe, $rows, $cols, $generation);
 }
