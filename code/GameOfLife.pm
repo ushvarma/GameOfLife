@@ -1,3 +1,11 @@
+# Requires three command line arguments, #rows #cols #generations.
+# ex: perl GameOfLife.pm 10 40 10
+
+package GameOfLife;
+use Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT = qw(createUniverse observeUniverse nextGeneration);
+
 use warnings;
 use strict;
 
@@ -9,7 +17,7 @@ sub createUniverse {
     my @universe;
     foreach (0..$rows-1){
         my @row;
-        push(@row, (rand(1) < 0.5) ? 1 : 0 ) foreach (1..$cols);
+        push(@row, (rand(1) < 0.33) ? 1 : 0 ) foreach (1..$cols);
         push(@universe, [@row]);
     }
     return @universe;
@@ -26,17 +34,24 @@ sub createEmptyUniverse {
     return @universe;
 }
 
-sub printUniverse {
+sub observeUniverse {
     my ($universeRef, $rows, $cols, $generation) = @_;
     my @universe = @$universeRef;
-    system("clear"); # works on *nix systems
-    print("Generation: ", $generation, "\n");
+    system("clear"); # only works on *nix systems
+    my $ret = "";
+    $ret .= "Generation: $generation\n";
+    $ret .= "#" foreach (0 .. $cols+1);
+    $ret .= "\n";
     foreach my $row (0 .. $rows-1) {
+        $ret .= "#";
         foreach my $col (0 .. $cols-1) {
-            print($universe[$row][$col] ? "@" : " ");
+            $ret .= $universe[$row][$col] ? "@" : " ";
         }
-        print("\n");
+        $ret .= "#\n";
     }
+    $ret .= "#" foreach (0 .. $cols+1);
+    $ret .= "\n";
+    return $ret;
 }
 
 sub nextGeneration {
@@ -66,10 +81,12 @@ sub nextGeneration {
 my ($rows, $cols, $generations) = @ARGV;
 
 my @universe = createUniverse($rows, $cols);
-printUniverse(\@universe, $rows, $cols, 0);
+print(observeUniverse(\@universe, $rows, $cols, 0));
 
 foreach my $generation (1 .. $generations-1) {
     usleep(500*1000);   # 500ms
     @universe = nextGeneration(\@universe, $rows, $cols);
-    printUniverse(\@universe, $rows, $cols, $generation);
+    print(observeUniverse(\@universe, $rows, $cols, $generation));
 }
+
+1;
