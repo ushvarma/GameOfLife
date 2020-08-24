@@ -8,8 +8,8 @@ matrix:
       - release
       - tip
 
-script:
- - go life_test.go
+    script:
+      - go test -v ./...
 
 notifications:
   email: false
