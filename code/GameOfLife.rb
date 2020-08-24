@@ -99,7 +99,7 @@
 #Main 
 sleep(0.1)
 clearScreen()
-life 50, 20, 619, 20
+life 50, 20, 619, 200
 
 '''
 if (test())
