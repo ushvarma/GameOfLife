@@ -1,7 +1,12 @@
 matrix:
   include:
     - language: go
-      go: 1.9.x
+      go: 
+        - 1.9.x
+        - release
+        - tip
+      script:
+        - go test -v ./...
 
 notifications:
   email: false
