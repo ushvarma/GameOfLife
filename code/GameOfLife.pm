@@ -15,9 +15,9 @@ use Time::HiRes qw(usleep);
 sub createUniverse {
     my ($rows, $cols) = @_;
     my @universe;
-    foreach (0..$rows-1){
+    foreach (0 .. $rows-1){
         my @row;
-        push(@row, (rand(1) < 0.33) ? 1 : 0 ) foreach (1..$cols);
+        push(@row, (rand(1) < 0.5) ? 1 : 0 ) foreach (1..$cols);
         push(@universe, [@row]);
     }
     return @universe;
@@ -26,7 +26,7 @@ sub createUniverse {
 sub createEmptyUniverse {
     my ($rows, $cols) = @_;
     my @universe;
-    foreach (0..$rows-1){
+    foreach (0 .. $rows-1){
         my @row;
         push(@row, 0) foreach (1..$cols);
         push(@universe, [@row]);
@@ -62,8 +62,8 @@ sub nextGeneration {
     foreach my $row (0 .. $rows-1) {
         foreach my $col (0 .. $cols-1) {
             my $sum = 0;
-            for (my $i = max(0, $row-1); $i <= min($row+1, $rows-1); $i++) {
-                for (my $j = max(0, $col-1); $j <= min($col+1, $cols-1); $j++) {
+            foreach my $i (max(0, $row-1) .. min($row-1, $rows+1)) {
+                foreach my $j (max(0, $col-1) .. min($col+1, $cols-1)) {
                     if ($i != $row || $j != $col) {
                         $sum += $oldUniverse[$i][$j];
                     }
