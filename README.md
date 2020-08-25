@@ -28,14 +28,14 @@ Example of one Instance of Game of Life:
 
 2. Select the programming language on the top right corner(Ruby,Pearl,Go).
 
-3. Copy the respective progamming languge code for the game of life present in the code folder.
+3. Copy the respective programming languge code for the game of life present in the code folder.
 
 4. Click on run at the top and check the output screen as the game of life is displayed.
 
 ## Evaluation of Work
 Visit the link https://docs.google.com/spreadsheets/d/1cYCGiiqwOXcH7xveMVOphOmT0MoK0BAt6QrtL8388rQ/edit#gid=0 and:
 
-1.Pick one key from the below table and save it. Click the checkbox after saving.
+1.Pick one key from the table in the spreadsheet. Click the checkbox after saving key. (Only pick the key for which the checkbox is clear)
 
-2.Once the dubugging is done come back to this sheet and fill the data in the row assigned for your key
+2.Once the debugging is done come back to this sheet and fill the data in the row assigned for your key
 
