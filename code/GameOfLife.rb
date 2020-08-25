@@ -63,10 +63,10 @@
         if c-r >= 0
             neighbors += a[c-r]
         end
-        if c-r+1 >= 0 and c-r+1<=a.length()-1 and ((c-r+1) % cols) !=0
+        if c-r+1 >= 0 and c-r+1<=a.length()-1
             neighbors += a[c-r+1]
         end
-        if c+r-1 >= 0 and c+r-1<=a.length()-1 and ((c+r) % cols) !=0
+        if c+r-1 >= 0 and c+r-1<=a.length()-1
             neighbors += a[c+r-1]
         end
         if c+r<=a.length()-1
