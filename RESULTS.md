@@ -36,7 +36,6 @@ Go : https://www.onlinegdb.com/online_go_compiler
 2.  Participants rated Go to be of low and Medium difficulty to understand. However, Ruby is rated of High difficulty by 5 and Perl by 4. Upon the analysis, it is observed that Ruby and Perl are close in the complexity to understand. In comparison Go looks to be more intuitive for most of the participants.
 <br />
 Following is the ranking of the 3 languages, from best to worst based on the data:
-<br />
 #### Go > Perl > Ruby
 
 ## Threats to Validity:
